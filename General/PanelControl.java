@@ -17,9 +17,11 @@ public class PanelControl {
     ntime = System.currentTimeMillis();
 
     try {
-      title = Font.createFont(Font.TRUETYPE_FONT, new File("Sprites/upheavtt.ttf"));
-      body = Font.createFont(Font.TRUETYPE_FONT, new File("Sprites/Retro Gaming.ttf"));
-    } catch (Exception e) {}
+      title = Font.createFont(Font.TRUETYPE_FONT, new File("Sprites", "upheavtt.ttf"));
+      body = Font.createFont(Font.TRUETYPE_FONT, new File("Sprites", "Retro Gaming.ttf"));
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     
     evFrame = new EvFrame(this);
   }
@@ -38,7 +40,9 @@ public class PanelControl {
     if (stime > 0) {
       try {
         Thread.sleep(stime);
-      } catch (Exception e) {}
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
     } else {
       ntime -= stime/2;
     }
